@@ -48,9 +48,10 @@ function main()
     io.gsub(".SRCINFO", "sha256sums = %w+", "sha256sums = " .. sha256)
     os.exec("git diff")
     os.exec("git add -A")
-    --os.exec("git commit -a -m \"update %s\"", version)
-    --os.exec("git push origin master")
+    os.exec("git commit -a -m \"update %s\"", version)
+    os.exec("git push origin master")
     -- publish to mingw-packages
+    --[[
     os.cd("..")
     os.exec("git clone https://github.com/waruqi/MINGW-packages.git")
     version = "2.6.1"
@@ -63,4 +64,5 @@ function main()
     os.exec("git add -A")
     os.exec("git commit -a -m \"xmake: %s\"", version)
     os.execv("gh", {"pr", "create", "--head", "xmake-" .. version, "--title", "xmake: " .. version, "--body", ""})
+    ]]
 end
