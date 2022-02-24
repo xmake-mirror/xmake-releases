@@ -45,4 +45,7 @@ function main()
     io.gsub(".SRCINFO", "pkgver = %d+%.%d+%.%d+", "pkgver = " .. version)
     io.gsub(".SRCINFO", "sha256sums = %w+", "sha256sums = " .. sha256)
     os.exec("git diff")
+    os.exec("git add -A")
+    os.exec("git commit -a -m \"update %s\"", version)
+    os.exec("git push origin master")
 end
