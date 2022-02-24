@@ -29,4 +29,4 @@ jobs:
 
       - name: Update
         run: |
-          xmake l ./scripts/update.lua
+          xmake l -vD ./scripts/update.lua

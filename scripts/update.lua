@@ -10,4 +10,11 @@ function main()
     print(assets)
     local assets_json = assert(json.decode(assets).assets, "assets not found!")
     print(assets_json)
+    os.mkdir("assets")
+    for _, asset in ipairs(assets_json) do
+        print("download", asset.name)
+        http.download(asset.url, path.join("assets", asset.name))
+    end
+    os.exec("git clone git@github.com:xmake-mirror/xmake-releases.git")
+    os.cd("xmake-releases")
 end
