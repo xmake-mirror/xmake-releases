@@ -27,6 +27,20 @@ jobs:
           sudo apt install gh
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
 
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          name: id_rsa # optional
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: Install SSH key (OSC)
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY_OSC }}
+          name: id_ed25519 # optional
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
       - name: Update
         run: |
           xmake l -vD ./scripts/update.lua
