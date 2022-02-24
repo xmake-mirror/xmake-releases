@@ -55,6 +55,8 @@ function main()
     os.exec("git clone https://github.com/waruqi/MINGW-packages.git")
     version = "2.6.1"
     os.cd("MINGW-packages")
+    os.exec("git branch xmake")
+    os.exec("git checkout xmake")
     io.gsub("mingw-w64-xmake/PKGBUILD", "pkgver=%d+%.%d+%.%d+", "pkgver=" .. version)
     io.gsub("mingw-w64-xmake/PKGBUILD", "sha256sums=%('.-'%)", "sha256sums=('" .. sha256 .. "')")
     os.exec("git diff")
