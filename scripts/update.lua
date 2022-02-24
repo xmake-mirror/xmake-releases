@@ -62,6 +62,5 @@ function main()
     os.exec("git diff")
     os.exec("git add -A")
     os.exec("git commit -a -m \"xmake: %s\"", version)
-    os.exec("git push origin xmake-%s", version)
-    os.execv("gh", {"pr", "create", "--title", "xmake: " .. version, "--body", ""})
+    os.execv("gh", {"pr", "create", "--head", "xmake-" .. version, "--title", "xmake: " .. version, "--body", ""})
 end
