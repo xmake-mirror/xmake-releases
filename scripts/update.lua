@@ -20,7 +20,6 @@ function main()
     end
     -- publish to xmake-releases
     print("publish to xmake-releases ..")
-    --[[
     os.cp("assets/xmake-v" .. version .. ".gz.run", ".")
     os.cp("assets/xmake-v" .. version .. ".xz.run", ".")
     os.cp("assets/xmake-v" .. version .. ".tar.gz", ".")
@@ -32,6 +31,7 @@ function main()
     os.exec("zip xmake-v" .. version .. ".win64.exe.zip xmake-v" .. version .. ".win64.exe")
     os.rm("xmake-v" .. version .. ".win32.exe")
     os.rm("xmake-v" .. version .. ".win64.exe")
+    --[[
     os.exec("git add -A")
     os.exec("git commit -a -m \"update %s\"", version)
     os.exec("git push git@github.com:xmake-mirror/xmake-releases.git %s", version)
