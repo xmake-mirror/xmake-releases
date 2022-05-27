@@ -45,4 +45,5 @@ jobs:
 
       - name: Update
         run: |
+          cat ~/.ssh/known_hosts
           xmake l -vD ./scripts/update.lua
