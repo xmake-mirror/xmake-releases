@@ -36,7 +36,6 @@ function main()
     os.exec("git push git@github.com:xmake-mirror/xmake-releases.git %s", version)
     os.exec("git push git@gitee.com:xmake-mirror/xmake-releases.git %s", version)
     os.exec("git push git@gitlab.com:xmake-mirror/xmake-releases.git %s", version)
-    os.exit()
     -- publish to aur
     print("publish to aur ..")
     local sha256 = hash.sha256("xmake-v" .. version .. ".tar.gz")
