@@ -31,13 +31,12 @@ function main()
     os.exec("zip xmake-v" .. version .. ".win64.exe.zip xmake-v" .. version .. ".win64.exe")
     os.rm("xmake-v" .. version .. ".win32.exe")
     os.rm("xmake-v" .. version .. ".win64.exe")
-    --[[
     os.exec("git add -A")
     os.exec("git commit -a -m \"update %s\"", version)
     os.exec("git push git@github.com:xmake-mirror/xmake-releases.git %s", version)
     os.exec("git push git@gitee.com:xmake-mirror/xmake-releases.git %s", version)
     os.exec("git push git@gitlab.com:xmake-mirror/xmake-releases.git %s", version)
-    ]]
+    os.exit()
     -- publish to aur
     print("publish to aur ..")
     local sha256 = hash.sha256("xmake-v" .. version .. ".tar.gz")
