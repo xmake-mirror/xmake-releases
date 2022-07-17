@@ -34,7 +34,7 @@ function main()
     os.exec("git add -A")
     os.exec("git commit -a -m \"update %s\"", version)
     os.exec("git push git@github.com:xmake-mirror/xmake-releases.git %s", version)
-    os.exec("git push git@gitee.com:xmake-mirror/xmake-releases.git %s", version)
+--    os.exec("git push git@gitee.com:xmake-mirror/xmake-releases.git %s", version)
     os.exec("git push git@gitlab.com:xmake-mirror/xmake-releases.git %s", version)
     -- publish to aur
     print("publish to aur ..")
