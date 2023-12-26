@@ -21,7 +21,6 @@ function main()
     -- publish to xmake-releases
     print("publish to xmake-releases ..")
     os.cp("assets/xmake-v" .. version .. ".gz.run", ".")
-    os.cp("assets/xmake-v" .. version .. ".xz.run", ".")
     os.cp("assets/xmake-v" .. version .. ".tar.gz", ".")
     os.cp("assets/xmake-v" .. version .. ".zip", ".")
     os.cp("assets/xmake-v" .. version .. ".win32.exe", ".")
