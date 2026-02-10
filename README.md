@@ -1,2 +1,0 @@
-# Xmake releases mirror
-
